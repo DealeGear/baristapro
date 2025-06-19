@@ -16,13 +16,14 @@
 
         .top-section {
             position: relative;
-            height: 50%;
-            /*background: linear-gradient(135deg, #8B4513, #A0522D); /* Gradiente marrom */
-            background-image:url(img/banner.jpg) ;
+            height: 50%; /* Mantém a altura para o banner */
+            background-image: url(img/banner.jpg);
             background-size: cover;
-            display: flex;
+            background-position: center; /* Garante que a imagem centralize */
+            display: flex; /* Mantém flexbox para centralizar conteúdo futuro se houver */
             justify-content: center;
             align-items: center;
+            overflow: hidden;
         }
 
         /* Botão de login no topo direito */
@@ -38,6 +39,7 @@
             border-radius: 15px;
             cursor: pointer;
             transition: background-color 0.3s, color 0.3s;
+            z-index: 10;
         }
 
         .login-btn:hover {
@@ -45,31 +47,11 @@
             color: #0e0601;
         }
 
-        .logo-overlay {
-            position: absolute;
-            bottom: -60px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background-color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        }
-
-        .logo-overlay img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-        }
+        /* A classe .logo-overlay e seus estilos foram removidos */
 
         .bottom-section {
             flex-grow: 1;
-            padding-top: 80px;
+            padding-top: 20px; /* Reduz o padding superior, já que o logo não está mais lá */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -92,7 +74,7 @@
 
         .bottom-section button:not(.highlight):hover {
             background-color: #D93A3A;
-            color: #fcfafa; 
+            color: #fcfafa;
         }
 
         .bottom-section .highlight {
@@ -104,13 +86,19 @@
             opacity: 1;
             font-weight: bold;
             font-size: 17px;
-            color:#884513;
+            color:#884513; /* Cor do texto no hover para os botões em geral */
         }
+        .bottom-section .highlight:hover {
+            background-color: #A32C2C; /* Um vermelho um pouco mais escuro no hover */
+            color: white; /* Mantém o texto branco */
+        }
+
 
         .greeting {
             margin-bottom: 20px;
             font-size: 20px;
             color: #4B2E2E;
+            text-align: center;
         }
 
         .footer {
@@ -119,19 +107,61 @@
             font-size: 12px;
             color: gray;
         }
+
+        /* --- Media Queries para Responsividade (Ajustadas) --- */
+
+        /* Para telas de até 768px (tablets e celulares maiores) */
+        @media screen and (max-width: 768px) {
+            /* As regras de .logo-overlay foram removidas */
+
+            .bottom-section {
+                padding-top: 20px; /* Mantém o padding padrão ou ajusta se necessário */
+            }
+
+            .greeting {
+                font-size: 18px;
+            }
+
+            .bottom-section button {
+                padding: 12px;
+                font-size: 16px;
+            }
+        }
+
+        /* Para telas de até 480px (celulares menores) */
+        @media screen and (max-width: 480px) {
+            .login-btn {
+                top: 10px;
+                right: 10px;
+                padding: 4px 10px;
+                font-size: 12px;
+            }
+
+            /* As regras de .logo-overlay foram removidas */
+
+            .bottom-section {
+                padding-top: 15px; /* Ajuste menor para telas pequenas */
+            }
+
+            .greeting {
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+
+            .bottom-section button {
+                padding: 10px;
+                font-size: 15px;
+                margin: 8px 0;
+            }
+        }
     </style>
 </head>
 <body>
 
     <div class="top-section">
-        <!-- Botão de login -->
         <button class="login-btn" onclick="login()">Login</button>
 
-        <!-- Logo sobreposto -->
-        <div class="logo-overlay">
-            <img src="img/logo.png" alt="Logo BaristaPro">
         </div>
-    </div>
 
     <div class="bottom-section">
         <div id="greeting" class="greeting"></div>
