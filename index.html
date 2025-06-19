@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaristaPro - Gestão de Cafeterias</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #F3ECE7; /* Fundo geral: bege claro */
+        }
+
+        .top-section {
+            position: relative;
+            height: 50%;
+            /*background: linear-gradient(135deg, #8B4513, #A0522D); /* Gradiente marrom */
+            background-image:url(img/banner.jpg) ;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Botão de login no topo direito */
+        .login-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            padding: 5px 12px;
+            font-size: 14px;
+            border: 1px solid white;
+            background: transparent;
+            color: white;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: white;
+            color: #0e0601;
+        }
+
+        .logo-overlay {
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .logo-overlay img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .bottom-section {
+            flex-grow: 1;
+            padding-top: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #FFF5F3; /* Tom leve tipo creme rosado */
+        }
+
+        .bottom-section button {
+            width: 80%;
+            max-width: 300px;
+            margin: 10px 0;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.8s;
+        }
+
+        .bottom-section button:not(.highlight):hover {
+            background-color: #D93A3A;
+            color: #fcfafa; 
+        }
+
+        .bottom-section .highlight {
+            background-color: #D93A3A; /* Vermelho Barista */
+            color: white;
+        }
+
+        .bottom-section button:hover {
+            opacity: 1;
+            font-weight: bold;
+            font-size: 17px;
+            color:#884513;
+        }
+
+        .greeting {
+            margin-bottom: 20px;
+            font-size: 20px;
+            color: #4B2E2E;
+        }
+
+        .footer {
+            margin-top: auto;
+            padding: 10px;
+            font-size: 12px;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-section">
+        <!-- Botão de login -->
+        <button class="login-btn" onclick="login()">Login</button>
+
+        <!-- Logo sobreposto -->
+        <div class="logo-overlay">
+            <img src="img/logo.png" alt="Logo BaristaPro">
+        </div>
+    </div>
+
+    <div class="bottom-section">
+        <div id="greeting" class="greeting"></div>
+
+        <button onclick="registrarVenda()">Registrar Venda</button>
+        <button onclick="consultarProdutos()">Consultar Produtos</button>
+        <button onclick="fecharCaixa()">Fechar Caixa</button>
+        <button onclick="cadastrarCliente()">Cadastrar Cliente</button>
+
+        <div class="footer">Criado por DealeGear</div>
+    </div>
+
+    <script>
+        function login() {
+            const nome = prompt("Digite seu nome:");
+            if (nome) {
+                document.getElementById('greeting').innerText = `Olá, ${nome}!`;
+            }
+        }
+
+        function registrarVenda() {
+            alert("Abrindo tela de Registro de Venda...");
+        }
+        function consultarProdutos() {
+            alert("Abrindo tela de Consulta de Produtos...");
+        }
+        function fecharCaixa() {
+            alert("Abrindo tela de Fechamento de Caixa...");
+        }
+        function cadastrarCliente() {
+            alert("Abrindo tela de Cadastro de Cliente...");
+        }
+    </script>
+
+</body>
+</html>
